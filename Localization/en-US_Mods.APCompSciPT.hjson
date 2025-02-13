@@ -1,0 +1,12 @@
+# This file will automatically update with entries for new content after a build and reload.
+
+Items: {
+	Fortune: {
+		DisplayName: Fortune
+		Tooltip:
+			'''
+			You have been granted the ability to alter the very fabric of reality although its effect is random and unpredictable every swing.
+			This item has been made by a AP CompSci student.
+			'''
+	}
+}
