@@ -2,11 +2,11 @@
 
 Items: {
 	Fortune: {
-		DisplayName: Fortune
+		DisplayName: Fortune's Edge
 		Tooltip:
 			'''
-			You have been granted the ability to alter the very fabric of reality although its effect is random and unpredictable every swing.
-			This item has been made by a AP CompSci student.
+			You have been granted the ability to alter the very fabric of reality although its effect is random and unpredictable with every swing.
+			This sword has been made by a AP CompSci student.
 			'''
 	}
 }
