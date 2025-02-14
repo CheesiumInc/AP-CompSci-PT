@@ -38,7 +38,7 @@ namespace APCompSciPT.Content.Items
 		//Checks if the items dealt damage to a enemy then goes through the function.
 		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone){
 			int number = rnd.Next(1, 100);
-			if (number >) {
+			if (number > 100) {
 				Console.WriteLine("20 is greater than 18");
 			}
 		}
