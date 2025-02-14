@@ -26,12 +26,18 @@ namespace APCompSciPT.Content.Items
 			Item.autoReuse = true;
 		}
 
+		//Recipe needed to create the sword.
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.DirtBlock, 10);
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
+		}
+		
+		//Checks if the items dealt damage to a enemy then goes through the function.
+		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone){
+			int number = rnd.Next(1, 100)
 		}
 	}
 }
