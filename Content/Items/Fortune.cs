@@ -8,6 +8,9 @@ namespace APCompSciPT.Content.Items
 	// Everything in public class Fortune is student made.
 	public class Fortune : ModItem
 	{
+		//variable for gambleFever function.
+		int gambleFever = 0;
+
 		// The Display Name and Tooltip of this item can be edited in the 'Localization/en-US_Mods.APCompSciPT.hjson' file.
 		public override void SetDefaults()
 		{
@@ -41,12 +44,22 @@ namespace APCompSciPT.Content.Items
 			recipe.Register();
 		}
 		
+		
 		//Checks if the items dealt damage to a enemy then goes through the function.
 		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
 		{
-			//Picks
-			int number = rnd.Next(1, 100);
-			if (2 > number > 20 ) {
+			//Increases each time the player hits an enemy with the sword.
+			public override void gambleFeverCount() {
+				gambleFever++;
+				//Checks if gambleFever variable over the limit causing a random buff to the player.
+				if (gambleFever >= 120) {
+				//Add buffs and coins here.
+				gambleFever = 0;
+			}
+		}
+			//Picks a random item in the idex and applies it to the hostile entity.
+			int gamble = rnd.Next(1, 100);
+			if (2 > gamble > 20 ) {
 				target.AddBuff(BuffID.Frostburn2, 360) //60 ticks is one second.
 			} else if (number = 1){
 				target.AddBuff(BuffID.Bleeding, 360) //60 ticks is one second
