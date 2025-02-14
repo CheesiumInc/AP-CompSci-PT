@@ -57,12 +57,12 @@ namespace APCompSciPT.Content.Items
 				gambleFever = 0;
 			}
 		}
-			//Picks a random item in the idex and applies it to the hostile entity.
+			//Picks a random debuff in the idex and applies it to the hostile entity.
 			int gamble = rnd.Next(1, 100);
 			if (2 > gamble > 20 ) {
-				target.AddBuff(BuffID.Frostburn2, 360) //60 ticks is one second.
+				target.AddBuff(BuffID.buffIndex[rnd.Next(1,20)], 360) //60 ticks is one second.
 			} else if (number = 1){
-				target.AddBuff(BuffID.Bleeding, 360) //60 ticks is one second
+				target.AddBuff(BuffID.Bleeding, 3600) //60 ticks is one second
 			}
 		}
 	}
