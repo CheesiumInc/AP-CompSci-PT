@@ -1,3 +1,0 @@
-displayName = A Student&#39;s Attempt at Coding
-author = Cheesium Incorporated
-version = 0.131
