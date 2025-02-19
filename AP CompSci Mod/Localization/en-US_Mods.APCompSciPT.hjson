@@ -1,0 +1,12 @@
+# This file will automatically update with entries for new content after a build and reload.
+
+Items: {
+	Fortune: {
+		DisplayName: Fortune's Edge
+		Tooltip:
+			'''
+			The sword grants power to the wielder and weakens their foes... most of the time.
+			This sword has been made by a AP CompSci student.
+			'''
+	}
+}
