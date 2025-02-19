@@ -58,7 +58,7 @@ namespace APCompSciPT.Content.Items
 			//Variable for gambleFever function
 			int gambleFever;
 			//Checks for if gambleFever has reached a certain number then adds a point to the gambleFever if not.
-			gambleFever(gambleFever);
+			gambleFever(gambleCount);
 
 			//Picks a random number for hostile NPC chance of a buff/Debuff.
 			int chance = rnd.Next(0, 100);
@@ -79,17 +79,17 @@ namespace APCompSciPT.Content.Items
 			}
 
 			//Increases each time the player hits an enemy with the sword. 
-			public void gambleFeverCount(gambleFever) {
+			public void gambleFever(gambleCount) {
 				//Checks if gambleFever variable is greater than or equal causing a random buff to the player.
-				if (gambleFever >= 5) {
+				if (gambleCount >= 5) {
 					//Gives the player a buff/s.
 					for (int i = 0; i < rnd.Next(1,5); i++) {
 						int gamble = rnd.Next(0, buffArray.Length)
 						player.AddBuff(BuffID.buffArray[gamble], rnd.Next(360, 720)) //A second is the number divided by 60.
 					}
-					gambleFever = 0;
+					gambleCount = 0;
 				} 
-				gambleFever++;
+				gambleCount++;
 			}
 		}
 	}
