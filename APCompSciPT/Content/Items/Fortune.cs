@@ -17,7 +17,7 @@ namespace APCompSciPT.Content.Items
         public override void SetDefaults()
         {
             //Base damage of the weapon on a hostile entity and how far the entity is launched back.
-            Item.damage = 40;
+            Item.damage = 74;
             Item.DamageType = DamageClass.Melee;
             Item.knockBack = 6;
 
@@ -44,7 +44,8 @@ namespace APCompSciPT.Content.Items
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.GoldBar, 12);
-            recipe.AddTile(TileID.WorkBenches);
+            recipe.AddIngredient(ItemID.FallenStar, 15);
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
 
