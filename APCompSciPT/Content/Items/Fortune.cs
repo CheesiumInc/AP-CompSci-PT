@@ -19,7 +19,7 @@ namespace APCompSciPT.Content.Items
             //Base damage of the weapon on a hostile entity and how far the entity is launched back.
             Item.damage = 74;
             Item.DamageType = DamageClass.Melee;
-            Item.knockBack = 6;
+            Item.knockBack = 8;
 
             //The heigh and width of the weapon.
             Item.width = 80;
@@ -44,7 +44,6 @@ namespace APCompSciPT.Content.Items
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.GoldBar, 12);
-            recipe.AddIngredient(ItemID.FallenStar, 15);
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
@@ -59,24 +58,14 @@ namespace APCompSciPT.Content.Items
 
             //Picks a random number for hostile NPC chance of a buff/Debuff.
             int chance = rnd.Next(0, 100);
-            //40% Chance for a debuff to a hostile NPC.
-            if (0 <= chance && chance <= 40)
+            //80% Chance for a debuff to a hostile NPC.
+            if (0 <= chance && chance <= 80)
             {
                 //Gives the hostile NPC a debuff/s.
                 for (int i = 0; i < rnd.Next(1, 5); i++)
                 {
-                    int gamble = rnd.Next(0, debuffArray.Length);
+                    int gamble = rnd.Next(0, debuffArray.Length - 1);
                     target.AddBuff(debuffArray[gamble], rnd.Next(360, 720)); //A second is the number divided by 60.
-                }
-                //40% Chance for a buff to a hostle NPC
-            }
-            else if (40 <= chance && chance <= 80)
-            {
-                //Gives the hostile NPC a buff/s.
-                for (int i = 0; i < rnd.Next(1, 5); i++)
-                {
-                    int gamble = rnd.Next(0, buffArray.Length);
-                    target.AddBuff(buffArray[gamble], rnd.Next(360, 720)); //A second is the number divided by 60.
                 }
             }
 
@@ -87,7 +76,8 @@ namespace APCompSciPT.Content.Items
                 //Gives the player a buff/s.
                 for (int i = 0; i < rnd.Next(1, 5); i++)
                 {
-                    int gamble = rnd.Next(0, buffArray.Length);
+                    //Picks a random index from buffArray to give a buff.
+                    int gamble = rnd.Next(0, buffArray.Length - 1);
                     player.AddBuff(buffArray[gamble], rnd.Next(360, 720)); //A second is the number divided by 60.
                 }
                 gambleFever = 0;
