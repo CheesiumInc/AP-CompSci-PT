@@ -69,7 +69,7 @@ namespace APCompSciPT.Content.Items
             }
         }
              //Method that checks for gambleChance is over required count then applies a buff/s to the player
-        public gambleFever(int gambleChance) 
+        public void gambleFever(int gambleChance) 
         {
             //checks if the gamble count 
              if (gambleChance >= 40)
