@@ -8,9 +8,7 @@ namespace APCompSciPT.Content.Items
 { 
     public class Fortune : ModItem
     {
-        OnHitNPC();
-        //variable for gambleFever function.
-        int gambleFever = 0;
+        //Sets the way random numbers are generated from Using System.
         Random rnd = new Random();
 
         //The Display Name and Tooltip of this is located in 'Localization/en-US_Mods.APCompSciPT.hjson' file.
@@ -47,12 +45,14 @@ namespace APCompSciPT.Content.Items
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
-
-
+        
+         //Checks if the weapon dealt damage to a enemy.
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             int[] buffArray = new int[] { 1, 2, 3, 5, 6, 7, 14, 16, 26, 58, 71, 73, 74, 75, 76, 77, 78, 79, 87, 89, 93, 97, 100, 105, 112, 113, 114, 116, 115, 117, 146, 151, 150, 158, 205, 215 };
             int[] debuffArray = new int[] { 30, 20, 24, 70, 22, 80, 35, 23, 31, 32, 33, 36, 39, 69, 44, 144, 21, 94, 67, 120, 353, 153 };
+            
+            gambleFever(rnd.Next(0,100))
 
             int chance = rnd.Next(0, 100);
             if (0 <= chance && chance <= 80)
@@ -62,17 +62,26 @@ namespace APCompSciPT.Content.Items
                     int gamble = rnd.Next(0, debuffArray.Length - 1);
                     target.AddBuff(debuffArray[gamble], rnd.Next(360, 720)); 
             }
-
-            gambleFever++;
+            
             if (gambleFever >= 5)
+                    target.AddBuff(debuffArray[gamble], rnd.Next(360, 720)); //A second is the random number divided by 60.
+                }
+            }
+        }
+             //Method that checks for gambleChance is over required count then applies a buff/s to the player
+        public gambleFever(int gambleChance) 
+        {
+            //checks if the gamble count 
+             if (gambleChance >= 40)
             {
                 for (int i = 0; i < rnd.Next(1, 5); i++)
                 {
                     int gamble = rnd.Next(0, buffArray.Length - 1);
                     player.AddBuff(buffArray[gamble], rnd.Next(360, 720)); 
+                    player.AddBuff(buffArray[gamble], rnd.Next(360, 720)); //A second is the random number divided by 60.
                 }
-                gambleFever = 0;
             }
-        }
+
+         }
     }
 }
