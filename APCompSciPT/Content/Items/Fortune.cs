@@ -1,4 +1,4 @@
-//References variables and methods outside of the weapon.
+//Refers to variables and methods outside of the program.
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,14 +6,14 @@ using System;
 
 namespace APCompSciPT.Content.Items
 { 
-// Everything in public class Fortune is student made. Refrences code from Terraria.
     public class Fortune : ModItem
     {
+        OnHitNPC();
         //variable for gambleFever function.
         int gambleFever = 0;
         Random rnd = new Random();
 
-        //The Display Name and Tooltip of this item can be edited in the 'Localization/en-US_Mods.APCompSciPT.hjson' file.
+        //The Display Name and Tooltip of this is located in 'Localization/en-US_Mods.APCompSciPT.hjson' file.
         public override void SetDefaults()
         {
             //Base damage of the weapon on a hostile entity and how far the entity is launched back.
@@ -47,7 +47,7 @@ namespace APCompSciPT.Content.Items
             recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
-
+        
 
         //Checks if the weapon dealt damage to a enemy.
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
@@ -65,7 +65,7 @@ namespace APCompSciPT.Content.Items
                 for (int i = 0; i < rnd.Next(1, 5); i++)
                 {
                     int gamble = rnd.Next(0, debuffArray.Length - 1);
-                    target.AddBuff(debuffArray[gamble], rnd.Next(360, 720)); //A second is the number divided by 60.
+                    target.AddBuff(debuffArray[gamble], rnd.Next(360, 720)); //A second is the random number divided by 60.
                 }
             }
 
@@ -78,7 +78,7 @@ namespace APCompSciPT.Content.Items
                 {
                     //Picks a random index from buffArray to give a buff.
                     int gamble = rnd.Next(0, buffArray.Length - 1);
-                    player.AddBuff(buffArray[gamble], rnd.Next(360, 720)); //A second is the number divided by 60.
+                    player.AddBuff(buffArray[gamble], rnd.Next(360, 720)); //A second is the random number divided by 60.
                 }
                 gambleFever = 0;
             }
