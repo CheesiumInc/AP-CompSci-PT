@@ -68,11 +68,11 @@ namespace APCompSciPT.Content.Items
                 }
             }
         }
-             //Method that checks for gambleChance is over required count then applies a buff/s to the player
-        public void gambleFever(int gambleChance) 
+        //Method that checks for gambleChance is over required count then applies a buff/s to the player
+        public void gambleFever(Player player, int[] buffArray, int gambleChance)
         {
             //checks if the gamble count 
-             if (gambleChance >= 40)
+            if (gambleChance >= 40)
             {
                 //Gives the player a buff/s.
                 for (int i = 0; i < rnd.Next(1, 5); i++)
@@ -82,7 +82,6 @@ namespace APCompSciPT.Content.Items
                     player.AddBuff(buffArray[gamble], rnd.Next(360, 720)); //A second is the random number divided by 60.
                 }
             }
-
-         }
+        }
     }
 }
